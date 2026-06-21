@@ -18,10 +18,12 @@ func main() {
 	//fmt.Println("Get your tickets here!", remainingTickets, "tickets available! out of ", conferenceTickets)
 	fmt.Printf("Get your tickets here! %v tickets available! out of %v  \n", remainingTickets, conferenceTickets) //printf to print using placeholders
 
+	var bookings [50]string
+
 	var firstName string
 	var lastName string
 	var email string
-	var usertickets int
+	var usertickets uint
 	//ask user for name using pointer & to wait ofr input
 	fmt.Println("Enter your First name :")
 	fmt.Scan(&firstName)
@@ -31,6 +33,13 @@ func main() {
 	fmt.Scan(&email)
 	fmt.Println("Enter number of tickets required:")
 	fmt.Scan(&usertickets)
-	fmt.Printf("Thank you %v %v for booking  %v tickets.\n You will recive confirmation email at %v\n", firstName, lastName, usertickets, email)
+	remainingTickets = remainingTickets - usertickets
+	bookings[0] = firstName + " " + lastName
 
+	fmt.Printf("The whole array : %v \n ", bookings)
+	fmt.Printf("The 1st value of  array : %v \n ", bookings[0])
+	fmt.Printf("The legnth of  array : %v \n ", len(bookings))
+
+	fmt.Printf("Thank you %v %v for booking  %v tickets.\n You will recive confirmation email at %v\n", firstName, lastName, usertickets, email)
+	fmt.Printf("%v tickets remaining for %v \n", remainingTickets, conferenceName)
 }
